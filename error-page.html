@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://digitransit-prod-cdn-origin.azureedge.net/matka-fonts/roboto/roboto.css" rel="stylesheet">
+
+  <title></title>
+
+  <style>
+	  html {
+		font-family: 'Roboto', Arial, Georgia, sans-serif;
+	  }
+	  .centered {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		height: 90vh;
+	  }
+	  .content {
+		  text-align: center;
+	  }
+	  h1 {
+		font-family: 'Roboto', Arial, Georgia, sans-serif;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 24px;
+		line-height: 18px;
+		color: #333333;
+	  }
+	  p {
+		font-family: 'Roboto', Arial, Georgia, sans-serif;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 18px;
+		line-height: 24px;
+		text-align: center;
+		color: #333333;
+		margin-left: 50px;
+		margin-right: 50px;
+	  }
+	  .button-row {
+		margin: auto;
+		margin-top: 50px;
+	  }
+	  img {
+		  margin: auto;
+	  }
+	  button {
+			width: 50px;
+			height: 40px;
+			color: #000F94;
+			border: none;
+			background-color: white;
+			font-family: 'Roboto', Arial, Georgia, sans-serif;
+			font-style: normal;
+			font-weight: bold;
+			font-size: 18px;
+			line-height: 40px;
+	  }
+	  button.active {
+		  background: #333333;
+		  color: white;
+	  }
+  </style>
+
+  <script>
+	var translations = {
+		fi: {
+			'error-heading': 'Tapahtui virhe.',
+			'error-main-text': 'Pahoittelut, palvelussamme on juuri nyt ongelma.',
+			'error-try-again': 'Ole hyvä ja yritä myöhemmin uudelleen.',
+		},
+		en: {
+			'error-heading': 'An error occurred.',
+			'error-main-text': 'Sorry, there is a problem with the service.',
+			'error-try-again': 'Please try again later.',
+		},
+		sv: {
+			'error-heading': 'Ett fel uppstod.',
+			'error-main-text': 'Det finns ett tillfälligt problem i vår tjänst, vänligen försök igen om en stund.',
+			'error-try-again': 'Vi beklagar situationen.',
+		},
+	}
+	 document.addEventListener('click', function (event) {
+		if (event.target.matches('.lang-button')) {
+			document.querySelector(".active").setAttribute("aria-pressed", false);
+			document.querySelector(".active").classList.remove("active");
+			event.target.classList.add("active");
+			event.target.setAttribute("aria-pressed", true);
+			let lang = event.target.value;
+			document.querySelector('#error-heading').innerHTML = translations[lang]['error-heading'];
+			document.querySelector('#error-main-text').innerHTML = translations[lang]['error-main-text'];
+			document.querySelector('#error-try-again').innerHTML = translations[lang]['error-try-again'];
+		}
+	}, false);
+  </script>
+</head>
+
+<body>
+	<div class="centered">
+		<div class="content">
+		<img src="data:image/svg+xml;charset=utf-8;base64, PHN2ZyB3aWR0aD0iNzIiIGhlaWdodD0iNzIiIHZpZXdCb3g9IjAgMCA3MiA3MiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik02OSA5SDNWNjNINjlWOVpNMCA2VjY2SDcyVjZIMFoiIGZpbGw9IiMwMDBGOTQiLz4KPHJlY3QgeD0iMyIgeT0iMjEiIHdpZHRoPSI2NiIgaGVpZ2h0PSIzIiBmaWxsPSIjMDAwRjk0Ii8+CjxjaXJjbGUgY3g9IjkuNzUiIGN5PSIxNSIgcj0iMi4yNSIgZmlsbD0iIzAwMEY5NCIvPgo8Y2lyY2xlIGN4PSIxNS43NSIgY3k9IjE1IiByPSIyLjI1IiBmaWxsPSIjMDAwRjk0Ii8+CjxjaXJjbGUgY3g9IjIxLjc1IiBjeT0iMTUiIHI9IjIuMjUiIGZpbGw9IiMwMDBGOTQiLz4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0zMy42OTc3IDMzLjE1MThMMzAuOTQgMzAuMzk0MUwyNy41NDU5IDMzLjc4ODJMMjQuMTUxOCAzMC4zOTQxTDIxLjM5NDEgMzMuMTUxOEwyNC43ODgyIDM2LjU0NkwyMS4zOTQxIDM5Ljk0MDFMMjQuMTUxOCA0Mi42OTc4TDI3LjU0NTkgMzkuMzAzN0wzMC45NCA0Mi42OTc4TDMzLjY5NzcgMzkuOTQwMUwzMC4zMDM2IDM2LjU0NkwzMy42OTc3IDMzLjE1MThaIiBmaWxsPSIjMDAwRjk0Ii8+CjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNNTEuNjk3NyAzMy4xNTE4TDQ4Ljk0IDMwLjM5NDFMNDUuNTQ1OSAzMy43ODgyTDQyLjE1MTggMzAuMzk0MUwzOS4zOTQxIDMzLjE1MThMNDIuNzg4MiAzNi41NDZMMzkuMzk0MSAzOS45NDAxTDQyLjE1MTggNDIuNjk3OEw0NS41NDU5IDM5LjMwMzdMNDguOTQgNDIuNjk3OEw1MS42OTc3IDM5Ljk0MDFMNDguMzAzNiAzNi41NDZMNTEuNjk3NyAzMy4xNTE4WiIgZmlsbD0iIzAwMEY5NCIvPgo8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTM2LjAwMDMgNTAuMjVDMzIuMzYwOSA1MC4yNSAyOS4yOTcyIDUyLjczOTEgMjguNDI5MyA1Ni4xMTEyTDI0LjA3MTMgNTQuOTg5NUMyNS40Mzg1IDQ5LjY3NzUgMzAuMjU3OSA0NS43NSAzNi4wMDAzIDQ1Ljc1QzQxLjc0MjcgNDUuNzUgNDYuNTYyIDQ5LjY3NzUgNDcuOTI5MyA1NC45ODk1TDQzLjU3MTMgNTYuMTExMkM0Mi43MDM0IDUyLjczOTEgMzkuNjM5NyA1MC4yNSAzNi4wMDAzIDUwLjI1WiIgZmlsbD0iIzAwMEY5NCIvPgo8L3N2Zz4K" alt="A sad smiley face" />
+		<h1 id="error-heading">Tapahtui virhe.</h1>
+		<p id="error-main-text">Pahoittelut, palvelussamme on juuri nyt ongelma.</p>
+		<p id="error-try-again">Ole hyvä ja yritä myöhemmin uudelleen.</p>
+		<div class="button-row">
+			<button role="button" aria-pressed="true" lang="fi" class="lang-button active" value="fi">
+				FI
+			</button>
+			<button role="button" aria-pressed="false" class="lang-button" lang="sv" value="sv">
+				SV
+			</button>
+			<button role="button" aria-pressed="false" class="lang-button" lang="en" value="en">
+				EN
+			</button>
+		</div>
+	</div>
+</div>
+</body>
+</html>
